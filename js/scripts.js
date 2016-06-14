@@ -59,6 +59,7 @@ $(document).ready(function(){
 
     if ((inputAge < 18) && (movie[1] === "R")){
       alert("You cannot purchase a ticket for this movie.");
+      return false;
     } else if (inputAge < 6){
       var moviePrice = moviePrice - 1;
     } else if (inputAge > 59){
@@ -72,14 +73,17 @@ $(document).ready(function(){
 
     console.log(movieTicket);
 
-    $(".movie-name").append(inputName);
-    $(".movie-time").append(inputTime);
-    $(".movie-price").append(moviePrice);
+    $(".movie-result-name").text(inputName);
+    $(".movie-result-time").text(inputTime);
+    $(".movie-result-price").text(moviePrice);
 
 
     $("#show-ticket").show();
 
 
+    $("select.movie-name").val("");
+    $("select.movie-time").val("");
+    $("input.movie-age").val("");
 
 
     // var movie = [inputName, 'rating', 'release'];
